@@ -25,7 +25,7 @@ class Task(AbstractTask):
     created = models.DateTimeField(auto_now_add=True)
 
     def save(self,  *args, **kwargs):
-        task = super(Task, self).save()
+        super(Task, self).save()
 
         TaskHistory.objects.create(
             task=self,

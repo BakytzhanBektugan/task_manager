@@ -11,6 +11,9 @@ STATUS_CHOICES = (
 
 
 class TasksFilter(filters.FilterSet):
+    """
+    Фильтрация Task по статусу и запланированной дате завершения
+    """
     status = filters.ChoiceFilter(choices=STATUS_CHOICES)
     completion_date = filters.DateFilter(lookup_expr='lte')
 

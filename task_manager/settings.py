@@ -152,3 +152,5 @@ DJOSER = {
     'SEND_ACTIVATION_EMAIL': False,
     'SERIALIZERS': {},
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
