@@ -19,4 +19,5 @@ task_detail = views.TaskViewSet.as_view({
 urlpatterns = [
     path('tasks/', task_list, name='tasks_list'),
     path('tasks/<int:pk>/', task_detail, name='task_detail'),
+    path('tasks/<int:pk>/history/', views.TaskHistoryView.as_view(), name='task_history'),
 ]
