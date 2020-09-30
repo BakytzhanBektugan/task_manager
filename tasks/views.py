@@ -1,6 +1,5 @@
 from django.http import JsonResponse
-from rest_framework import generics, viewsets, permissions, views
-from rest_framework.response import Response
+from rest_framework import viewsets, views, permissions
 
 from .models import Task, TaskHistory
 from .api.serializers import TaskSerializer, TaskHistorySerializer
@@ -11,9 +10,9 @@ from .api.filters import TasksFilter
 
 class TaskViewSet(viewsets.ModelViewSet):
     """
-    A viewset for viewing and editing task instances.
+    Viewset для изменения/получения объектов Task
     """
-    permission_classes = [IsOwnerOnly, ]
+    permission_classes = [IsOwnerOnly, permissions.IsAuthenticated]
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     filter_backends = (DjangoFilterBackend, )
@@ -27,7 +26,9 @@ class TaskViewSet(viewsets.ModelViewSet):
 
 
 class TaskHistoryView(views.APIView):
-
+    """
+    APIView для получения истории изменение объектов Task
+    """
     def get(self, request, pk):
         queryset = TaskHistory.objects.filter(task_id=pk).filter(task__owner=request.user)
         serializer = TaskHistorySerializer(queryset, many=True)
