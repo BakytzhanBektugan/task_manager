@@ -7,6 +7,7 @@ class Task(models.Model):
                               related_name='tasks')
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=300)
+    file = models.FileField(upload_to='files/%Y/%m/%d/', null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     STATUS_CHOICES = (
         ('N', 'New'),
@@ -15,4 +16,4 @@ class Task(models.Model):
         ('C', 'Completed')
     )
     status = models.CharField(max_length=1, choices=STATUS_CHOICES, default='N')
-    completion_date = models.DateField()
+    completion_date = models.DateField(null=True, blank=True)
