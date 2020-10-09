@@ -13,7 +13,6 @@ class TaskViewSet(viewsets.ModelViewSet):
     Viewset для изменения/получения объектов Task
     """
     permission_classes = [IsOwnerOnly, permissions.IsAuthenticated]
-    queryset = Task.objects.all()
     serializer_class = TaskSerializer
     filter_backends = (DjangoFilterBackend, )
     filterset_class = TasksFilter
