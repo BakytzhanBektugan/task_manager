@@ -41,3 +41,6 @@ http://127.0.0.1:8000/api/tasks?status=I&completion_date=2022-12-12
 Типы возможных статусов: **('N', 'New'), ('P', 'Planned'), ('I', 'In progress'), ('C', 'Completed')**.
 
 Все необходимые пакеты приведены в [requirements.txt](https://github.com/BakytzhanBektugan/task_manager/blob/master/requirements.txt).
+
+
+Поработали в ветке
